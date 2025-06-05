@@ -22,27 +22,21 @@ module cbatb;
     initial begin
         $dumpfile("cbatb.vcd");
         $dumpvars(0 , cbatb);
-        $display(" a          b          cin | sum        cout");
-        $display("---------------------------------------------");
         for(i = 0; i<5536 ; i = i+1)begin
             {a , b , cin} = i;
             #1;
-            $display("%b %b %b | %b %b", a, b, cin, sum, cout);
         a = 32'hffffffff;
         b = 32'h00000001;
         cin = 1'b0;
             #1;
-            $display("%b %b %b | %b %b", a, b, cin, sum, cout);
         a = 32'h0ffffff;
         b = 32'hfdbace01;
         cin = 1'b0;
             #1;
-            $display("%b %b %b | %b %b", a, b, cin, sum, cout);
         a = 32'h00ffffff;
         b = 32'h60d0f0a1;
         cin = 1'b0;
             #1;
-            $display("%b %b %b | %b %b", a, b, cin, sum, cout);
         end
         $finish;
 
