@@ -1,17 +1,13 @@
 module dem1xn #(parameter N = 4) (
-    input en,
-    input i,
-    input [$clog2(N)-1:0] s,
-    output [N-1:0] y
+    input en,                          // Enable
+    input i,                           // Input signal
+    input [$clog2(N)-1:0] s,           // Select lines
+    output reg [N-1:0] y               // Output lines
 );
-    reg [N-1:0] x;
-    always @(*)  begin
-        x=0;
-        if (en==1) begin
-            x[s] = i;
-        end else begin
-            x[s] = 0;
-        end
+    always @(*) begin
+        y = 0;                        
+        if (en)                        
+            y[s] = i;                 
     end
-    assign y=x;
+
 endmodule
